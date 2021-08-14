@@ -52,14 +52,14 @@ class CustomerController extends Controller
       $produkIkan          =  DB::table('products')
                                 ->join('categories', 'categories.id', '=', 'products.id_kategori')
                                 ->select('products.*', 'categories.nama as kategori')
-                                ->where('categories.id','=', 18)
+                                ->where('categories.nama','=', "Produk Unggulan")
                                 ->orderBy('products.created_at', 'desc')
                                 ->limit(5)
                                 ->get();
       $produkIkanShowCase  = DB::table('products')
                                 ->join('categories', 'categories.id', '=', 'products.id_kategori')
                                 ->select('products.*', 'categories.nama as kategori')
-                                ->where('categories.id','=', 18)
+                                ->where('categories.nama','=', "Produk Unggulan")
                                 ->orderBy('products.created_at', 'desc')
                                 ->paginate(8);
 

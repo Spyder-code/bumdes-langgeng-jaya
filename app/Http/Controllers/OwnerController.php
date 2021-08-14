@@ -169,7 +169,7 @@ class OwnerController extends Controller
             'image'           => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
          ]);
          $namaGambar = $request->image->getClientOriginalName();
-         $request->image->move(public_path('owner/images/produk/'), $namaGambar);
+         $request->image->move('owner/images/produk/', $namaGambar);
          //---------------------------
          $produk = Product::find($id);
          $produk->id_kategori = $request->kategori;
@@ -210,7 +210,7 @@ class OwnerController extends Controller
             'image'           => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
          ]);
          $namaGambar = $request->image->getClientOriginalName();
-         $request->image->move(public_path('owner/images/produk/'), $namaGambar);
+         $request->image->move('owner/images/produk/', $namaGambar);
          //---------------------------
          $produk = new Product;
          $produk->id_kategori = $request->kategori;
@@ -348,7 +348,7 @@ class OwnerController extends Controller
             'image'         => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
          ]);
          $namaGambar = $request->image->getClientOriginalName();
-         $request->image->move(public_path('owner/images'), $namaGambar);
+         $request->image->move('owner/images', $namaGambar);
          //---------------------------
          $perusahaan = Company::find(1);
          $perusahaan->logo = $namaGambar;
@@ -380,7 +380,7 @@ class OwnerController extends Controller
             'image'         => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
          ]);
          $namaGambar =$request->image->getClientOriginalName();
-         $request->image->move(public_path('owner/images'), $namaGambar);
+         $request->image->move('owner/images', $namaGambar);
          //---------------------------
          DB::table('users')->where('name', '=', 'owner')->update(['image' => $namaGambar]);
          return redirect('/owner/profile')->with('success', 'Data gambar berhasil diperbarui');
