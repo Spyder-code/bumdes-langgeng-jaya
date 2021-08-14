@@ -212,7 +212,7 @@
                               <td>{{ $item->title }}</td>
                               <td>{{ $item->category->nama }}</td>
                               <td>
-                                <a href="#" class="btn btn-sm btn-primary bDetailGambar">Baca Article</a>
+                                <a href="{{ url('/read-article/'.$item->id) }}" class="btn btn-sm btn-primary bDetailGambar">Baca Article</a>
                                 <a href="{{ route('article.edit',['article'=>$item->id]) }}" class="btn btn-sm btn-warning bEditProduk">Edit</a>
                                 <form action="{{ route('article.destroy',['article'=>$item->id]) }}" method="post">
                                     @csrf
