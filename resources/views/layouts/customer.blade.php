@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="{{ asset('customer/css/jquery-ui.min.css') }}">
     <link rel="stylesheet" href="{{ asset('customer/css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('customer/css/slicknav.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('customer/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('customer/css/style1.css') }}">
 </head>
 
 <body>
