@@ -40,7 +40,7 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="card">
-                                <img class="card-img-top img-fluid" src="{{ asset($item->image) }}" alt="Card image cap">
+                                <img class="card-img-top img-fluid" src="{{ asset($article->image) }}" alt="Card image cap">
                                 <div class="card-body">
                                     <div class="px-5 mt-3">
                                         {!! $article->content !!}

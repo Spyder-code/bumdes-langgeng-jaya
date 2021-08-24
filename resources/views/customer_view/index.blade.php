@@ -11,13 +11,13 @@
 
 @section('content')
 
-   <div class="hero__item set-bg" data-setbg="{{ url('customer/img/warung.jpg') }}">
-       <div class="hero__text ml-auto text-right mr-5">
+   <div class="hero__item set-bg" data-setbg="{{ url('customer/img/banner.jpg') }}">
+       {{-- <div class="hero__text ml-auto text-right mr-5">
            <span>Jual</span>
            <h3>Berbagai macam ikan segar,<br>Sayuran, Buah-buahan, <br>Empon-empon, Sembako, <br>Kebutuhan sehari-hari</h3>
            <p>Dan masih banyak yang lainya</p>
            <a href="{{url('toko/all')}}" class="primary-btn">Belanja Sekarang</a>
-       </div>
+       </div> --}}
    </div>
 
    <!-- Categories Section Begin -->
