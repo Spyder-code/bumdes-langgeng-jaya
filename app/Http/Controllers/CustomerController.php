@@ -47,7 +47,7 @@ class CustomerController extends Controller
          $request->session()->put('total',0);
       }
       $request->session()->put('cartTotal',$total);
-      $katalog = Category::all();
+      $katalog = Category::all()->where('type',0);
 
       $produkIkan          =  DB::table('products')
                                 ->join('categories', 'categories.id', '=', 'products.id_kategori')
@@ -110,7 +110,7 @@ class CustomerController extends Controller
     public function cart(Request $request)
     {
         $ip = $request->getClientIp();
-        $katalog = Category::all();
+        $katalog = Category::all()->where('type',0);
         $data = DB::table('checkouts')
                 ->join('products','products.id','=','checkouts.id_produk')
                 ->select('products.nama','products.harga','products.image','checkouts.*')
@@ -125,13 +125,12 @@ class CustomerController extends Controller
 
    public function search($nama)
    {
+       $katalog = Category::all()->where('type',0);
        if($nama=="all"){
-        $katalog = Category::all();
         $data = Product::paginate(9);
         $total = $data->count();
         return view('customer_view.search',compact('data','total','katalog'));
         }else{
-            $katalog = Category::all();
     $data = DB::table('products')
             ->join('categories', 'categories.id', '=', 'products.id_kategori')
             ->select('products.*', 'categories.nama as kategori')

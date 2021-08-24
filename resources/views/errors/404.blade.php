@@ -4,7 +4,7 @@
 <ul>
     <li><a href="{{ url('/') }}">Beranda</a></li>
     <li><a href="{{url('toko')}}">Toko</a></li>
-    <li><a href="{{url('pembayaran')}}">Pembayaran</a></li>
+    <li><a href="{{url('/read-article')}}">Article</a></li>
     <li><a href="{{ url('/tentang-kami') }}">Tentang Kami</a></li>
 </ul>
 @endsection

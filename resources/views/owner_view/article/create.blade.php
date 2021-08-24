@@ -130,8 +130,18 @@
                         </select>
                     </div>
                     <div class="input-group">
-                        <label class="label" for="image">Image</label>
-                        <input type="file" name="image" id="image">
+                        <label class="label" for="gambarProduk1">Image</label>
+                        <input type="file" name="image" id="gambarProduk1" onchange="loadFile1(event)" required>
+                        <img id="output1" class="img-thumbnail mt-3" style="height: 200px; width:250px" />
+                        <script>
+                        var loadFile1 = function(event) {
+                              var output1 = document.getElementById('output1');
+                              output1.src = URL.createObjectURL(event.target.files[0]);
+                              output1.onload = function() {
+                              URL.revokeObjectURL(output1.src)
+                              }
+                        };
+                        </script>
                     </div>
                     <div class="input-group">
                         <button type="submit" class="btn-save"><i class="fas fa-save"></i> Save</button>

@@ -47,16 +47,21 @@ class ArticleController extends Controller
         ]);
 
         if($request->hasFile('image') && $request->image) {
-            $namaGambar =$request->file('image')->getClientOriginalName();
-            $request->image->move(public_path('article/images'), $namaGambar);
-            //---------------------------
-            Article::create([
+            $article = Article::create([
                 'title' => $request->title,
                 'content' => $request->content,
                 'category_id' => $request->category_id,
+                'image' => $request->image,
+            ]);
+            $namaGambar =$article->id.'.'.$request->file('image')->getClientOriginalExtension();
+            $request->image->move('article/images', $namaGambar);
+            //---------------------------
+            Article::find($article->id)->update([
                 'image' => 'article/images/'.$namaGambar,
             ]);
             return redirect()->route('article.index')->with('success', 'Article berhasil ditambahkan!');
+        }else{
+            return back()->with('danger', 'Harap cek kembali gambar yang digunakan!');
         }
     }
 
@@ -101,8 +106,8 @@ class ArticleController extends Controller
         ]);
 
         if($request->hasFile('image') && $request->image) {
-            $namaGambar =$request->file('image')->getClientOriginalName();
-            $request->image->move(public_path('article/images'), $namaGambar);
+            $namaGambar =$article->id.'.'.$request->file('image')->getClientOriginalExtension();
+            $request->image->move('article/images', $namaGambar);
             //---------------------------
             Article::find($article->id)->update([
                 'title' => $request->title,

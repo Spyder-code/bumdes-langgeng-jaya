@@ -124,6 +124,14 @@
          </button>
          </div>
       @enderror
+      @error('deskripsi')
+         <div class="alert alert-warning alert-dismissible fade show mt-1" role="alert">
+            {{ $message }}
+         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+         </button>
+         </div>
+      @enderror
       @error('image')
          <div class="alert alert-warning alert-dismissible fade show mt-1" role="alert">
             {{ $message }}
@@ -143,25 +151,25 @@
                   <form action="{{ url('/owner/produk/store') }}" method="post" enctype="multipart/form-data">
                      @csrf
                      <div class="form-group">
-                        <input type="text" name="nama" class="form-control" placeholder="Nama Produk" autocomplete="off" required>
+                        <input type="text" name="nama" value="{{ old('nama') }}" class="form-control" placeholder="Nama Produk" autocomplete="off" required>
                      </div>
                      <div class="form-group">
                         <label for="kategoriProduk1" class="font-weight-bold">Kategori</label>
                         <select name="kategori" id="kategoriProduk1" class="form-control" required>
                            @foreach ($kategori as $ktg)
-                              <option value="{{ $ktg->id }}">{{ $ktg->nama }}</option>
+                              <option {{ old('kategori'==$ktg->id?'selected':'') }} value="{{ $ktg->id }}">{{ $ktg->nama }}</option>
                            @endforeach
                         </select>
                      </div>
                      <hr>
                      <div class="form-group">
-                        <input type="number" name="harga" class="form-control" placeholder="Harga" min="0" required>
+                        <input type="number" name="harga" value="{{ old('harga') }}" class="form-control" placeholder="Harga" min="0" required>
                      </div>
                      <div class="form-group">
-                        <input type="number" name="stok" class="form-control" placeholder="Stok" min="0" required>
+                        <input type="number" name="stok" value="{{ old('stok') }}" class="form-control" placeholder="Stok" min="0" required>
                      </div>
                      <div class="form-group">
-                        <textarea name="deskripsi" class="form-control" cols="30" rows="5" placeholder="Deskripsi"></textarea>
+                        <textarea name="deskripsi" class="form-control" cols="30" rows="5" placeholder="Deskripsi">{{ old('deskripsi') }}</textarea>
                      </div>
                      <div class="form-group">
                         <label for="gambarProduk1" class="font-weight-bold">Gambar</label>

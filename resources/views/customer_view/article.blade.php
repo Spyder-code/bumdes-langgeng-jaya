@@ -41,11 +41,11 @@
                         @foreach ($data as $item)
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="card" style="width: 18rem;">
-                                <img class="card-img-top" src="{{ asset($item->image) }}" alt="Card image cap">
-                                <div class="card-body">
+                                <img class="card-img-top" style="height: 200px" src="{{ asset($item->image) }}" alt="Card image cap">
+                                <div class="card-body text-center">
                                     <h5 class="card-title">{{ $item->title }}</h5>
-                                    <div class="card-text">{!! Str::limit($item->content, 50, '...') !!}</div>
-                                    <a href="{{ url('read-article/'.$item->id) }}" class="btn btn-primary">Read</a>
+                                    <div class="card-text text-secondary mb-4">Upload on: {{ date('d F y', strtotime($item->created_at)) }}</div>
+                                    <a href="{{ url('read-article/'.$item->id) }}" class="btn btn-primary d-block">Read</a>
                                 </div>
                             </div>
                         </div>
